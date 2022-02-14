@@ -3,6 +3,7 @@ import org.sourcegrade.submitter.submit
 plugins {
     java
     application
+    id("org.sourcegrade.style") version "1.2.0" // comment to disable style check
     id("org.sourcegrade.submitter").version("0.4.0")
 }
 
