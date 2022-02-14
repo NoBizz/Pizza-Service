@@ -124,9 +124,9 @@ public interface Food {
          * Concatenates the result of all previous calls to this method with the provided {@code weightMutator}.
          *
          * <p>
-         * The provided {@link DoubleUnaryOperator} accepts the result produced by the function provided to the previous call to this
-         * method and produces a new weight. The new weight does not necessarily have to be different from the previous one, and
-         * may even be exactly the same value.
+         * The provided {@link DoubleUnaryOperator} accepts the result produced by the function provided to the previous call to
+         * this method and produces a new weight. The new weight does not necessarily have to be different from the previous
+         * one, and may even be exactly the same value.
          * </p>
          *
          * @param weightMutator A {@link DoubleUnaryOperator} which determines a new weight based on the previous value

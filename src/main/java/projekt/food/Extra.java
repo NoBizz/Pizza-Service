@@ -16,7 +16,7 @@ public interface Extra<C extends Food.Config> {
     String getName();
 
     /**
-     * The priority of the extra, lower is calculated first
+     * The priority of the extra, lower is calculated first.
      */
     int getPriority();
 
