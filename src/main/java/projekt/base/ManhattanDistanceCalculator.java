@@ -1,6 +1,6 @@
 package projekt.base;
 
-class ManhattanDistanceCalculator implements DistanceCalculator {
+public class ManhattanDistanceCalculator implements DistanceCalculator {
 
 	/**
 	 * Calculates the distance between location points a and b, equating to the time needed to traverse between a and b

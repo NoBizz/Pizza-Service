@@ -1,17 +1,44 @@
 package projekt.food;
 
-/**
- * An ice cream dish
- * 
- * @author Jason L
- * @see Food
- */
-public interface IceCream extends Food {
-	
-	/**
-	 * 
-	 * @return the ice cream's flavor
-	 */
-	String getFlavor();
+import java.util.function.UnaryOperator;
 
+/**
+ * Interface for IceCream dishes
+ *
+ */
+public interface IceCream extends Food{
+    /**
+     * Gets the icecreams flavor.
+     *
+     * @return flavor of icecream
+     */
+    String getFlavor();
+
+    /**
+     * Config for icecreams.
+     */
+    interface Config extends Food.Config{
+        /**
+         * Set an icecreams operator.
+         * @param flavorMutator of an icecream
+         */
+        void flavor(UnaryOperator<String> flavorMutator);
+
+        /**
+         * Gets all icecreams operators.
+         * @return unaryOperator of icecreams
+         */
+        UnaryOperator<String> getFlavorMutator();
+    }
+
+    /**
+     * IceCream.Variant extending Food.Variant.
+     */
+    interface Variant extends Food.Variant{
+        /**
+         * Base Flavor of a IceCream.Variant.
+         * @return base Falvor
+         */
+        String getBaseFlavor();
+    }
 }

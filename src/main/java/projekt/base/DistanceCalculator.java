@@ -14,7 +14,7 @@ public interface DistanceCalculator {
 	 * Calculates the distance between location points a and b, equating to the time needed to traverse between a and b
 	 * @param a point a 
 	 * @param b point b
-	 * @return the distance between both points
+	 * @return the distance between both points, equating to the time needed to traverse
 	 */
 	double calculateDistance(Location a, Location b);
 

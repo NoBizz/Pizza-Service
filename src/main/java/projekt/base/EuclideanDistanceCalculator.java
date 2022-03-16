@@ -4,7 +4,7 @@ package projekt.base;
  * 
  * @author Jason L
  */
-class EuclideanDistanceCalculator implements DistanceCalculator {
+public class EuclideanDistanceCalculator implements DistanceCalculator {
 
 	/**
 	 * Calculates the euclidian distance between location points a and b, equating to the time needed to traverse between a and b
