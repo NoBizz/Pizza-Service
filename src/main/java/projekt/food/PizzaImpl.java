@@ -13,7 +13,16 @@ class PizzaImpl implements Pizza{
     final List<? extends  Extra<?>> extras;
     final double diameter;
     final String sauce;
-
+//DONE
+    /**
+     * Constructor of PizzaImpl sets the objectconstants to the given params
+     * @param price of pizza
+     * @param weight of pizza
+     * @param foodVariant of pizza
+     * @param extras on pizza
+     * @param diameter of pizza
+     * @param sauce of pizza
+     */
     PizzaImpl(BigDecimal price, double weight, Food.Variant<?, ?> foodVariant, List<? extends  Extra<?>> extras, double diameter, String sauce){
         this.price = price;
         this.weight = weight;
@@ -72,13 +81,17 @@ class PizzaImpl implements Pizza{
     }
 
     private static class Config implements Pizza.Config{
+        UnaryOperator<BigDecimal> priceMutator;
+        DoubleUnaryOperator weightMutator;
+        DoubleUnaryOperator diameterMutator;
+        UnaryOperator<String> sauceMutator;
 
         /**
         * {@inheritDoc}
         */
         @Override
         public void price(UnaryOperator<BigDecimal> priceMutator) {
-
+            this.priceMutator = priceMutator;
         }
 
         /**
@@ -86,7 +99,7 @@ class PizzaImpl implements Pizza{
         */
         @Override
         public UnaryOperator<BigDecimal> getPriceMutator() {
-            return null;
+            return this.priceMutator;
         }
 
         /**
@@ -94,7 +107,7 @@ class PizzaImpl implements Pizza{
         */
         @Override
         public void weight(DoubleUnaryOperator weightMutator) {
-
+            this.weightMutator = weightMutator;
         }
 
         /**
@@ -102,12 +115,12 @@ class PizzaImpl implements Pizza{
         */
         @Override
         public DoubleUnaryOperator getWeightMutator() {
-            return null;
+            return this.weightMutator;
         }
 
         @Override
         public void diameter(DoubleUnaryOperator diameterMutator) {
-
+            this.diameterMutator = diameterMutator;
         }
 
         /**
@@ -115,7 +128,7 @@ class PizzaImpl implements Pizza{
         */
         @Override
         public DoubleUnaryOperator getDiameterMutator() {
-            return null;
+            return this.diameterMutator;
         }
 
         /**
@@ -123,7 +136,7 @@ class PizzaImpl implements Pizza{
         */
         @Override
         public void sauce(UnaryOperator<String> sauceMutator) {
-
+            this.sauceMutator = sauceMutator;
         }
 
         /**
@@ -131,7 +144,7 @@ class PizzaImpl implements Pizza{
         */
         @Override
         public UnaryOperator<String> getSauceMutator() {
-            return null;
+            return this.sauceMutator;
         }
     }
 }
