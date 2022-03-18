@@ -13,6 +13,16 @@ class PastaImpl implements Pasta{
     final double thickness;
     final String sauce;
 
+    final FoodBuilder<Pasta,Pasta.Config,Pasta.Variant> BUILDER = new FoodBuilder<Pasta, Pasta.Config, Variant>() {
+        @Override
+        public Pasta build(Pasta.Config config, Variant Variant, List<Extras> compatible_extras) {
+            return new PastaImpl(price,weight,foodVariant,extras,thickness,sauce);
+        }
+    };
+
+
+
+
     /**
      * Constructor of PastaImpl sets the objectconstants to the given params
      * @param price of pasta

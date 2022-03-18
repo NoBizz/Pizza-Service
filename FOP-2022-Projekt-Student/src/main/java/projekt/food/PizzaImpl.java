@@ -12,6 +12,15 @@ class PizzaImpl implements Pizza{
     final List<? extends  Extra<?>> extras;
     final double diameter;
     final String sauce;
+
+    final FoodBuilder<Pizza,Pizza.Config,Pizza.Variant> BUILDER = new FoodBuilder<Pizza, Pizza.Config, Variant>() {
+        @Override
+        public Pizza build(Pizza.Config config, Variant Variant, List<Extras> compatible_extras) {
+            return new PizzaImpl(price,weight,Variant,extras,diameter,sauce);
+        }
+    };
+
+
 //DONE
     /**
      * Constructor of PizzaImpl sets the objectconstants to the given params
