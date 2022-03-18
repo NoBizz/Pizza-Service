@@ -20,7 +20,7 @@ class IceCreamImpl implements IceCream{
      * @param extras
      * @param flavor
      */
-    public IceCreamImpl(BigDecimal price, double weight, Food.Variant<?, ?> foodVariant, List<? extends Extra<?>> extras, String flavor) {
+    IceCreamImpl(BigDecimal price, double weight, Food.Variant<?, ?> foodVariant, List<? extends Extra<?>> extras, String flavor) {
         this.price = price;
         this.weight = weight;
         this.foodVariant = foodVariant;
@@ -72,7 +72,6 @@ class IceCreamImpl implements IceCream{
         UnaryOperator<BigDecimal> priceMutator;
         DoubleUnaryOperator weightMutator;
         UnaryOperator<String> flavorMutator;
-        UnaryOperator<String> sauceMutator;
 
         /**
          * {@inheritDoc}
@@ -120,22 +119,6 @@ class IceCreamImpl implements IceCream{
         @Override
         public UnaryOperator<String> getFlavorMutator() {
             return this.flavorMutator;
-        }
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        public void sauce(UnaryOperator<String> sauceMutator) {
-            this.sauceMutator = sauceMutator;
-        }
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        public UnaryOperator<String> getSauceMutator() {
-            return this.sauceMutator;
         }
     }
 }
