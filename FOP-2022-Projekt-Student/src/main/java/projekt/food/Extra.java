@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Stream;
-
+import java.util.stream.Collectors;
 
 /**
  * A modification that targets configurable values in a {@link Food.Config}.
@@ -22,7 +22,7 @@ public interface Extra<C extends Food.Config> {
     String getName();
 
     /**
-     * The priority of the extra, lower is calculated first.
+     * The priority of the extra, lower is applied first.
      */
     int getPriority();
 
@@ -33,7 +33,7 @@ public interface Extra<C extends Food.Config> {
 
     /**
      * sorts the list by priority (and alphabetical - if two items have the same priority)  applies the modification of any extra included in the list to the configuration
-     * @param config is the configuration that is beeing changed
+     * @param config is the configuration that is being changed
      * @param extras are the added extras
      * @param <C> extends Food.Config, are the possible configurations
      */
@@ -81,7 +81,7 @@ public interface Extra<C extends Food.Config> {
 
         Stream<ExtraImpl<C>> listStream = extras.stream();
 
-        List<ExtraImpl<C>> sortedList = listStream.sorted(listComparator).toList();
+        List<ExtraImpl<C>> sortedList = listStream.sorted(listComparator).collect(Collectors.toList());
 
 
         for (ExtraImpl<C> cExtra : sortedList) {
