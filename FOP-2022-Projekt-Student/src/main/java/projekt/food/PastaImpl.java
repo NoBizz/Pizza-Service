@@ -2,6 +2,8 @@ package projekt.food;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.function.DoubleUnaryOperator;
+import java.util.function.UnaryOperator;
 
 class PastaImpl implements Pasta{
     final BigDecimal price;
@@ -11,15 +13,14 @@ class PastaImpl implements Pasta{
     final double thickness;
     final String sauce;
 
-    //TODO
     /**
-     * 
-     * @param price
-     * @param weight
-     * @param foodVariant
-     * @param extras
-     * @param thickness
-     * @param sauce
+     * Constructor of PastaImpl sets the objectconstants to the given params
+     * @param price of pasta
+     * @param weight of pasta
+     * @param foodVariant of pasta
+     * @param extras in pasta
+     * @param thickness of noodle
+     * @param sauce of pasta
      */
     PastaImpl(BigDecimal price, double weight, Food.Variant<?, ?> foodVariant, List<? extends  Extra<?>> extras, double thickness, String sauce){
         this.price = price;
@@ -78,6 +79,75 @@ class PastaImpl implements Pasta{
     public String getSauce() {
         return this.sauce;
     }
-}
 
-//TODO Config nested class
+    private static class Config implements Pasta.Config{
+        UnaryOperator<BigDecimal> priceMutator;
+        DoubleUnaryOperator weightMutator;
+        DoubleUnaryOperator thicknessMutator;
+        UnaryOperator<String> sauceMutator;
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public void price(UnaryOperator<BigDecimal> priceMutator) {
+           this.priceMutator = priceMutator;
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public UnaryOperator<BigDecimal> getPriceMutator() {
+            return this.priceMutator;
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public void weight(DoubleUnaryOperator weightMutator) {
+            this.weightMutator = weightMutator;
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public DoubleUnaryOperator getWeightMutator() {
+            return this.weightMutator;
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public void thickness(DoubleUnaryOperator thicknessMutator) {
+            this.thicknessMutator = thicknessMutator;
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public DoubleUnaryOperator getThicknessMutator() {
+            return this.thicknessMutator;
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public void sauce(UnaryOperator<String> sauceMutator) {
+            this.sauceMutator = sauceMutator;
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public UnaryOperator<String> getSauceMutator() {
+            return this.sauceMutator;
+        }
+    }
+}
