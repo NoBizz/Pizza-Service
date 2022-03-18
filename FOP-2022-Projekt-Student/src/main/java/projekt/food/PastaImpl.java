@@ -13,16 +13,6 @@ class PastaImpl implements Pasta{
     final double thickness;
     final String sauce;
 
-    final FoodBuilder<Pasta,Pasta.Config,Pasta.Variant> BUILDER = new FoodBuilder<Pasta, Pasta.Config, Variant>() {
-        @Override
-        public Pasta build(Pasta.Config config, Variant Variant, List<Extras> compatible_extras) {
-            return new PastaImpl(price,weight,foodVariant,extras,thickness,sauce);
-        }
-    };
-
-
-
-
     /**
      * Constructor of PastaImpl sets the objectconstants to the given params
      * @param price of pasta
@@ -159,5 +149,64 @@ class PastaImpl implements Pasta{
         public UnaryOperator<String> getSauceMutator() {
             return this.sauceMutator;
         }
+    }
+    
+    /**
+     * {@link Food.Variant}
+     *
+     */
+    static class Variant implements Saucable.Variant{
+    	
+    	String name;
+    	FoodType type;
+    	BigDecimal basePrice;
+    	double baseWeight;
+    	
+    	Variant(String name, FoodType type, BigDecimal basePrice, double baseWeight){
+    		this.name = name;
+    		this.type = type;
+    		this.basePrice = basePrice;
+    		this.baseWeight = baseWeight;
+    	}
+
+		@Override
+		public String getName() {
+			return name;
+		}
+
+		@Override
+		public FoodType getFoodType() {
+			return type;
+		}
+
+		@Override
+		public BigDecimal getBasePrice() {
+			return basePrice;
+		}
+
+		@Override
+		public double getBaseWeight() {
+			return baseWeight;
+		}
+
+		@Override
+		public projekt.food.Food.Config createEmptyConfig() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public Food create(List extras) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public String getBaseSauce() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+    	
+
     }
 }

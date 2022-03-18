@@ -12,15 +12,14 @@ class PizzaImpl implements Pizza{
     final List<? extends  Extra<?>> extras;
     final double diameter;
     final String sauce;
-
-    final FoodBuilder<Pizza,Pizza.Config,Pizza.Variant> BUILDER = new FoodBuilder<Pizza, Pizza.Config, Variant>() {
+    
+   /* final static FoodBuilder<Pizza, Pizza.Config, Variant> BUILDER = new FoodBuilder<Pizza, Pizza.Config, Variant>() {
         @Override
         public Pizza build(Pizza.Config config, Variant Variant, List<Extras> compatible_extras) {
             return new PizzaImpl(price,weight,Variant,extras,diameter,sauce);
         }
-    };
-
-
+    };*/
+    
 //DONE
     /**
      * Constructor of PizzaImpl sets the objectconstants to the given params
@@ -88,6 +87,10 @@ class PizzaImpl implements Pizza{
         return this.sauce;
     }
 
+    /**
+     * {@link Food.Config}
+     *
+     */
     private static class Config implements Pizza.Config{
         UnaryOperator<BigDecimal> priceMutator;
         DoubleUnaryOperator weightMutator;
@@ -154,5 +157,68 @@ class PizzaImpl implements Pizza{
         public UnaryOperator<String> getSauceMutator() {
             return this.sauceMutator;
         }
+    }
+    
+    /**
+     * {@link Food.Variant}
+     *
+     */
+    static class Variant implements Saucable.Variant{
+    	
+    	String name;
+    	FoodType type;
+    	BigDecimal basePrice;
+    	double baseWeight;
+    	String baseSauce;
+    	double baseDiameter;
+    	
+    	Variant(String name, FoodType type, BigDecimal basePrice, double baseWeight, String baseSauce, double baseDiameter){
+    		this.name = name;
+    		this.type = type;
+    		this.basePrice = basePrice;
+    		this.baseWeight = baseWeight;
+    		this.baseSauce = baseSauce;
+    		this.baseDiameter = baseDiameter;
+    	}
+
+		@Override
+		public String getName() {
+			return name;
+		}
+
+		@Override
+		public FoodType getFoodType() {
+			return type;
+		}
+
+		@Override
+		public BigDecimal getBasePrice() {
+			return basePrice;
+		}
+
+		@Override
+		public double getBaseWeight() {
+			return baseWeight;
+		}
+
+		@Override
+		public projekt.food.Food.Config createEmptyConfig() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public Food create(List extras) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public String getBaseSauce() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+    	
+
     }
 }

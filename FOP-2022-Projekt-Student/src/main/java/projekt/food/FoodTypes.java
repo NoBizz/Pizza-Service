@@ -8,9 +8,9 @@ import projekt.food.Pizza.Config;
 
 public final class FoodTypes<F extends Food,C extends Food.Config>{
 	
-    private static List<Extra<?>> pizzacompatible = new ArrayList<>();
-    private static List<Extra<?>> pastacompatible = new ArrayList<>();
-    private static List<Extra<?>> ice_creamcompatible = new ArrayList<>();
+    public static List<Extra<?>> pizzacompatible = new ArrayList<>();
+    public static List<Extra<?>> pastacompatible = new ArrayList<>();
+    public static List<Extra<?>> ice_creamcompatible = new ArrayList<>();
 
     public static final FoodType<PizzaImpl,Pizza.Config> PIZZA = new FoodTypeImpl("Pizza", pizzacompatible);
     public static final FoodType<PastaImpl,Pasta.Config> PASTA = new FoodTypeImpl("Pasta",pastacompatible);

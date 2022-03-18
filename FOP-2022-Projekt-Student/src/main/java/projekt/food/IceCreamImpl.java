@@ -11,13 +11,9 @@ class IceCreamImpl implements IceCream{
     final Food.Variant<?, ?> foodVariant;
     final List<? extends Extra<?>> extras;
     final String flavor;
+    
+    //static final FoodBuilder<Pizza, Pizza.Config, Food.Variant> BUILDER;
 
-    final FoodBuilder<IceCream,IceCream.Config,IceCream.Variant> BUILDER = new FoodBuilder<IceCream, IceCream.Config, Variant>() {
-        @Override
-        public IceCream build(IceCream.Config config, Variant Variant, List<Extras> compatible_extras) {
-            return new IceCreamImpl(price,weight,foodVariant,extras,flavor);
-        }
-    };
     /**
      * Constructor of IceCreamImpl sets the objectconstants to the given params
      * @param price
@@ -126,5 +122,60 @@ class IceCreamImpl implements IceCream{
         public UnaryOperator<String> getFlavorMutator() {
             return this.flavorMutator;
         }
+    }
+    
+    /**
+     * {@link Food.Variant}
+     *
+     */
+    static class Variant implements Food.Variant<Food, Config>{
+    	
+    	String name;
+    	FoodType type;
+    	BigDecimal basePrice;
+    	double baseWeight;
+    	
+    	Variant(String name, FoodType type, BigDecimal basePrice, double baseWeight){
+    		this.name = name;
+    		this.type = type;
+    		this.basePrice = basePrice;
+    		this.baseWeight = baseWeight;
+    	}
+
+		@Override
+		public String getName() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public FoodType<Food, Config> getFoodType() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public BigDecimal getBasePrice() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public double getBaseWeight() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+
+		@Override
+		public Config createEmptyConfig() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public Food create(List<? extends Extra<? super Config>> extras) {
+			// TODO Auto-generated method stub
+			return null;
+		}
     }
 }

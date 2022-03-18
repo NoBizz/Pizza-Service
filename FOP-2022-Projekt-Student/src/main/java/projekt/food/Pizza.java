@@ -1,5 +1,6 @@
 package projekt.food;
 
+import java.math.BigDecimal;
 import java.util.function.DoubleUnaryOperator;
 import java.util.function.UnaryOperator;
 
@@ -7,6 +8,12 @@ import java.util.function.UnaryOperator;
  * Interface for Pizzas dishes.
  */
 public interface Pizza extends Saucable{
+	
+	Pizza.Variant MARGHERITA = (Variant) new PizzaImpl.Variant("Margherita", FoodTypes.PIZZA ,BigDecimal.valueOf(9.75), 0.8, "Tomato", 30.0);
+	Pizza.Variant HAWAII = (Variant) new PizzaImpl.Variant("Hawaii", FoodTypes.PIZZA, BigDecimal.valueOf(13.75), 0.8, "Tomato", 30.0);
+	Pizza.Variant Rucola = (Variant) new PizzaImpl.Variant("Rucola", FoodTypes.PIZZA, BigDecimal.valueOf(14.50), 0.9, "Tomato", 30.0);
+	Pizza.Variant BBQ = (Variant) new PizzaImpl.Variant("BBQ", FoodTypes.PIZZA, BigDecimal.valueOf(14.50), 1.1, "BBQ", 30.0);
+	
     /**
      * Gets a pizzas diameter as a double value.
      *
