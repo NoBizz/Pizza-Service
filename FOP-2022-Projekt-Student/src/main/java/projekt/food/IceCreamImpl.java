@@ -12,7 +12,7 @@ class IceCreamImpl implements IceCream{
     final List<? extends Extra<?>> extras;
     final String flavor;
 
-    final FoodBuilder<IceCream,IceCream.Config,IceCream.Variant> BUILDER2 = new FoodBuilder<IceCream, IceCream.Config, Variant>() {
+    final FoodBuilder<IceCream,IceCream.Config,IceCream.Variant> BUILDER = new FoodBuilder<IceCream, IceCream.Config, Variant>() {
         @Override
         public IceCream build(IceCream.Config config, Variant Variant, List<Extras> compatible_extras) {
             return new IceCreamImpl(price,weight,foodVariant,extras,flavor);
