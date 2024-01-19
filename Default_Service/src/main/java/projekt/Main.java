@@ -15,7 +15,6 @@ public class Main {
      * @param args program arguments, currently ignored
      */
     public static void main(String[] args) {
-        System.out.println("Hello World!");
-        TimeInterval interval = new TimeInterval(null, null);
+      
     }
 }
