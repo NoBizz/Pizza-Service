@@ -26,11 +26,6 @@ public class FoodTypeImpl<F extends Food, C extends Food.Config> implements Food
     }
 
 
-
-
-
-
-
     /**
      * {@inheritDoc}
      */

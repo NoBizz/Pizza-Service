@@ -12,11 +12,7 @@ import java.util.List;
 @FunctionalInterface
 public interface FoodBuilder<F extends Food, C extends Food.Config, V extends Food.Variant<F, C>> {
 	
-	/**
-	 * 
-	 * @return
-	 */
-	
+
 	F build(C config, V variant, List<Extras> list);
 
 }
