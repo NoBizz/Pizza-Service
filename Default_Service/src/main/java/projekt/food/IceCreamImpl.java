@@ -142,40 +142,5 @@ class IceCreamImpl implements IceCream{
     		this.baseWeight = baseWeight;
     	}
 
-		@Override
-		public String getName() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public FoodType<Food, Config> getFoodType() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public BigDecimal getBasePrice() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public double getBaseWeight() {
-			// TODO Auto-generated method stub
-			return 0;
-		}
-
-		@Override
-		public Config createEmptyConfig() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public Food create(List<? extends Extra<? super Config>> extras) {
-			// TODO Auto-generated method stub
-			return null;
-		}
     }
 }

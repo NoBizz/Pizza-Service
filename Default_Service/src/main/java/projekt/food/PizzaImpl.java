@@ -200,24 +200,6 @@ class PizzaImpl implements Pizza{
 		public double getBaseWeight() {
 			return baseWeight;
 		}
-
-		@Override
-		public projekt.food.Food.Config createEmptyConfig() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public Food create(List extras) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public String getBaseSauce() {
-			// TODO Auto-generated method stub
-			return null;
-		}
     	
 
     }

@@ -17,8 +17,7 @@ public final class FoodTypes<F extends Food,C extends Food.Config>{
     public static final FoodType<IceCreamImpl,IceCream.Config> ICE_CREAM = new FoodTypeImpl("Ice Cream",ice_creamcompatible);
 
     public static Map<String, FoodType> ALL;
-    
-    //TODO static initializer
+
     
 
     /**

@@ -16,7 +16,7 @@ public interface FoodBuilder<F extends Food, C extends Food.Config, V extends Fo
 	 * 
 	 * @return
 	 */
-	//TODO list Type
+	
 	F build(C config, V variant, List<Extras> list);
 
 }
